@@ -20,3 +20,13 @@ function nextCard() {
     flashcards[currentCardIndex].style.display = 'block';
   }
 }
+function prevCard() {
+  if (currentCardIndex > 0) {
+    // Hide the current card
+    flashcards[currentCardIndex].style.display = 'none';
+    
+    // Show the previous card
+    currentCardIndex--;
+    flashcards[currentCardIndex].style.display = 'block';
+  }
+}
