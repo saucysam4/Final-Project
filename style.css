@@ -1,56 +1,204 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
+    background-color: #f7f9fd;
 }
 
-.flashcard-container {
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
+.container {
+    width: 90vw;
+    max-width: 62.5em;
+    position: relative;
+    margin: auto;
+    margin-top: 20px; /* Adjust as needed */
 }
 
-.flashcard {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
-}
-
-.front, .back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  backface-visibility: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.back {
-  transform: rotateY(180deg);
-  background-color: #f0f0f0;
-}
-
-.front {
-  z-index: 2;
-}
-
-.back {
-  z-index: 1;
-}
-
-.flashcard:not(:first-child) {
-  display: none; /* Hide all flashcards except the first one */
+.add-flashcard-con {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure the button stays on top */
 }
 
 button {
-  margin-top: 20px; /* Add margin between button and flashcards */
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
-.container{
-background-color: aquamarine;
+.add-flashcard-con button {
+    font-size: 1em;
+    background-color: #8755ec;
+    color: #ffffff;
+    padding: 0.8em 1.2em;
+    font-weight: 500;
+    border-radius: 0.4em;
 }
+
+#card-con {
+    margin-top: 1em;
+}
+
+.question-container {
+    width: 90vw;
+    max-width: 34em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 3em 2em;
+    border-radius: 0.6em;
+    box-shadow: 0 1em 2em rgba(28, 0, 80, 0.1);
+}
+
+.question-container h2 {
+    font-size: 2.2em;
+    color: #8755ec;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.error-con {
+    align-self: center;
+}
+
+#error {
+    color: #ff5353;
+    font-weight: 400;
+}
+
+.fa-circle-xmark {
+    font-size: 1.8em;
+    height: 1.8em;
+    width: 1.8em;
+    display: grid;
+    place-items: center;
+    color: red;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-self: flex-end;
+}
+
+label {
+    color: #363d55;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.7em 0.5em;
+    border: 1px solid #d0d0d0;
+    outline: none;
+    color: #414a67;
+    border-radius: 0.3em;
+    resize: none;
+}
+
+textarea:not(:last-child) {
+    margin-bottom: 1.2em;
+}
+
+textarea:focus {
+    border-color: #363d55;
+}
+
+#save-btn {
+    font-size: 1em;
+    background-color: #8755ec;
+    color: #ffffff;
+    padding: 0.6em 0;
+    border-radius: 0.3em;
+    font-weight: 600;
+}
+
+.card-list-container {
+    margin-top: 80px; /* Adjust as needed to create space between the button and the flashcards */
+    display: grid;
+    padding: 0.2em;
+    gap: 1.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card{
+    background-color: #f7f9fd;
+    box-shadow: 0 0.4em 1.2em rgba(28,0,80,0.08);
+    padding: 1.2em;
+    border-radius: 0.4em;
+}
+.question-div,
+.answer-div{
+    text-align: justify;
+}
+.question-div{
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #363d55;
+}
+.answer-div{
+    margin-top: 1em;
+    font-weight: 400;
+    color: #363d55;
+}
+.show-hide-btn{
+    display: block;
+    background-color: #8755ec;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.6em 0;
+    border-radius: 0.3em;
+}
+.buttons-con{
+    display: flex;
+    justify-content: flex-end;
+}
+.edit,
+.delete{
+    background-color: transparent;
+    padding: 0.5em;
+    font-size: 1.2em;
+}
+.edit{
+    color: #557dec;
+}
+.delete{
+    color: #ff5353;
+}
+.hide {
+    display: none;
+}
+@media screen and (max-width: 800px){
+    .card-list-container{
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8em;
+    }
+}
+@media screen and (max-width: 450px) {
+    body {
+        font: size 14px;
+    }
+    .card-list-container {
+       grid-template-columns: 1fr;
+       gap: 1.2em; 
+    }
+}
+
+

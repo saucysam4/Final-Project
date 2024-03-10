@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flashcards</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard creator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/f33dd8c6e0.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="flashcard-container">
-    <div class="flashcard" id="flashcard-1">
-      <div class="front" onclick="flipCard(1)">Front of the card 1</div>
-      <div class="back" onclick="flipCard(1)">Back of the card 1</div>
+    
+    <div class="container">
+        <div class="add-flashcard-con">
+            <button id="add-flashcard">Add Flashcard</button>
+        </div>
+
+        <!-- Display Card of Questions and Answers Here -->
+        <div id="card-con">
+            <div class="card-list-container"></div>
+        </div>
     </div>
-    <div class="flashcard" id="flashcard-2">
-      <div class="front" onclick="flipCard(2)">Front of the card 2</div>
-      <div class="back" onclick="flipCard(2)">Back of the card 2</div>
+
+    <!-- Input form for users to fill questions and answers -->
+<div class="question-container hide"
+id="add-question-card">
+    <h2>Add Flashcard</h2>
+    <div class="wrapper">
+    
+    <div class="error-con">
+        <span class="hide" id="error">Input fields cannot be empty!</span>
     </div>
-    <div class="flashcard" id="flashcard-3">
-      <div class="front" onclick="flipCard(3)">Front of the card 3</div>
-      <div class="back" onclick="flipCard(3)">Back of the card 3</div>
-    </div>
-    <div class="button-container">
-      <button onclick="prevCard()">Back</button>
-      <button onclick="nextCard()">Next</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <!-- Close Button -->
+    <i class="fa-solid fa-circle-xmark"
+    id="close-btn"></i>
+</div>
+
+
+<label for="question">Question:</label>
+<textarea 
+class="input" 
+id="question"
+placeholder="Type the question here..."
+rows="2">
+</textarea>
+
+<label for="answer">Answer:</label>
+<textarea 
+class="input" 
+id="answer" 
+rows="4"
+placeholder="Type the answer here...">
+</textarea>
+
+<button id="save-btn">Save</button>
+</div>
+
+<script src="script.js"></script>
+
+
 </body>
 </html>
-
-
