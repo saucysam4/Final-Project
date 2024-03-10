@@ -14,12 +14,12 @@ body {
     max-width: 62.5em;
     position: relative;
     margin: auto;
-    margin-top: 20px; /* Adjust as needed */
+    margin-top: 20px;
 }
 
 .add-flashcard-con {
     position: fixed;
-    top: 20px; /* Adjust as needed */
+    top: 20px; 
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Ensure the button stays on top */
@@ -130,7 +130,7 @@ textarea:focus {
 }
 
 .card-list-container {
-    margin-top: 80px; /* Adjust as needed to create space between the button and the flashcards */
+    margin-top: 80px;
     display: grid;
     padding: 0.2em;
     gap: 1.5em;
@@ -200,5 +200,3 @@ textarea:focus {
        gap: 1.2em; 
     }
 }
-
-
